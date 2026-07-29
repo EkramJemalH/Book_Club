@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookClub - Books</title>
+    <link rel="stylesheet" href="Book_Club_Books.css">
+</head>
+<body>
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero_wrapper">
+        <header class="top-bar">
+            <div class="logo">
+                <h1>BooK CluB</h1>
+            </div>
+            <nav class="nav_container">
+                <ul>
+                    <li><a href="Book_Club_Home.html">Home</a></li>
+                    <li><a href="Book_Club_Books.html" class="active">Books</a></li>
+                    <li><a href="Book_Club_About.html">About Us</a></li>
+                    <li><a href="Book_Club_Contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="hero">
+            <h1>OUR BOOKS</h1>
+            <h3>Discover Your Next Favorite Read</h3>
+            <p>Explore our curated collection of books across various genres. From romance to mystery, find the perfect book that speaks to you.</p>
+        </div>
+    </section>
+
+    <!-- ========== BOOKS SECTION ========== -->
+    <section class="books-section">
+        <div class="container">
+            <!-- Search & Filter -->
+            <div class="search-filter">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <input type="text" placeholder="Search for books by title, author, or genre...">
+                </div>
+                <div class="filter-options">
+                    <select>
+                        <option value="all">All Genres</option>
+                        <option value="romance">Romance</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="self-development">Self-Development</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="historical">Historical Fiction</option>
+                        <option value="nonfiction">Nonfiction</option>
+                    </select>
+                    <select>
+                        <option value="default">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="title">Title: A-Z</option>
+                        <option value="title-desc">Title: Z-A</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Books Grid - 4 columns x 3 rows -->
+            <div class="books-grid">
+                <!-- Book 1 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder"><img src="Book/it_end_with_us.jpg" alt="It Ends with Us"></div>
+                        <span class="book-badge">Romance</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>It Ends with Us</h3>
+                        <p class="author">Colleen Hoover</p>
+                        <p class="book-description">A powerful story about love, difficult choices, and finding the courage to break unhealthy patterns.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$14.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder"><img src="Book/a_good_girl's_guide_to_murder.jpg" alt="A Good Girl's Guide to Murder"></div>
+                        <span class="book-badge">Mystery</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>A Good Girl's Guide to Murder</h3>
+                        <p class="author">Holly Jackson</p>
+                        <p class="book-description">A determined student investigates a closed murder case and uncovers secrets someone wants to keep hidden.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$13.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Fantasy</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>Fourth Wing</h3>
+                        <p class="author">Rebecca Yarros</p>
+                        <p class="book-description">A young woman enters a deadly dragon-riding academy where survival means proving she is stronger than everyone expects.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$16.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Historical</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>A Thousand Splendid Suns</h3>
+                        <p class="author">Khaled Hosseini</p>
+                        <p class="book-description">An emotional story of friendship, sacrifice, and resilience set against the turbulent history of Afghanistan.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$15.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Fiction</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>A Little Life</h3>
+                        <p class="author">Hanya Yanagihara</p>
+                        <p class="book-description">A deeply emotional novel exploring friendship, trauma, love, and the lasting impact of the past.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$18.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 6 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Self-Dev</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Courage to Be Disliked</h3>
+                        <p class="author">Ichiro Kishimi & Fumitake Koga</p>
+                        <p class="book-description">A thought-provoking guide to overcoming the expectations of others and finding freedom through self-acceptance.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$14.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 7 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Self-Dev</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Only Skill That Matters</h3>
+                        <p class="author">Jonathan Levi</p>
+                        <p class="book-description">A practical book focused on learning faster, improving memory, and developing skills that help you grow.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$12.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 8 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Psychology</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>Human Superpowers</h3>
+                        <p class="author">Private Person</p>
+                        <p class="book-description">An exploration of human potential and the abilities that can help us understand ourselves and connect with others.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$13.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 9 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Nonfiction</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Art of Logic</h3>
+                        <p class="author">Eugenia Cheng</p>
+                        <p class="book-description">An accessible introduction to logical thinking and how it can help us understand arguments and make better decisions.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$15.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 10 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Self-Dev</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Let Them Theory</h3>
+                        <p class="author">Mel Robbins & Sawyer Robbins</p>
+                        <p class="book-description">A practical approach to letting go of what you cannot control and focusing your energy on your own life and choices.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$16.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 11 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Thriller</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Housemaid</h3>
+                        <p class="author">Freida McFadden</p>
+                        <p class="book-description">A housemaid discovers that the wealthy family she works for is hiding disturbing secrets behind closed doors.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$13.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 12 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <div class="book-placeholder">📚</div>
+                        <span class="book-badge">Thriller</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>Never Lie</h3>
+                        <p class="author">Freida McFadden</p>
+                        <p class="book-description">A couple exploring an isolated house discovers a collection of recordings that reveals a chilling mystery.</p>
+                        <div class="book-footer">
+                            <span class="book-price">$13.99</span>
+                            <a href="#" class="btn-add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-count">
+                Showing <span>12</span> books
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>BookClub</h2>
+                    <p>Stories worth reading. Discover your next favorite book with us.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+                                <path d="M15 8a4 4 0 0 0 4 4V7a3 3 0 0 1-3-3h-4v13"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Book_Club_Home.html">Home</a></li>
+                        <li><a href="Book_Club_Books.html">Shop</a></li>
+                        <li><a href="Book_Club_About.html">About Us</a></li>
+                        <li><a href="#">Categories</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="Book_Club_Contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookClub. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
