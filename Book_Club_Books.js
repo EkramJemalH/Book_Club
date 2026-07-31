@@ -1,4 +1,4 @@
-// Data array containing all books currently on your Books page
+// ========== BOOK DATA ==========
 const books = [
   {
     title: "It Ends with Us",
@@ -98,13 +98,25 @@ const books = [
   }
 ];
 
-// Function to render books dynamically
-function displayBooks() {
+// ========== FUNCTION TO RENDER BOOKS ==========
+function displayBooks(booksToDisplay) {
   const container = document.getElementById("books-grid");
 
   if (!container) return;
 
-  container.innerHTML = books.map(book => `
+  // If no books to display, show a message
+  if (!booksToDisplay || booksToDisplay.length === 0) {
+    container.innerHTML = `
+      <div class="no-results">
+        <h3>📚 No books found</h3>
+        <p>Try adjusting your search or filter</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Generate HTML for each book
+  container.innerHTML = booksToDisplay.map(book => `
     <div class="book-card">
       <div class="book-image">
         <div class="book-placeholder">
@@ -118,12 +130,121 @@ function displayBooks() {
         <p class="book-description">${book.description}</p>
         <div class="book-footer">
           <span class="book-price">${book.price}</span>
-          <button class="btn-add-to-cart">Add to Cart</button>
+          <button class="btn-add-to-cart" onclick="addToCart('${book.title}')">Add to Cart</button>
         </div>
       </div>
     </div>
   `).join("");
 }
 
-// Run render function once DOM is ready
-document.addEventListener("DOMContentLoaded", displayBooks);
+// ========== FUNCTION TO FILTER BOOKS ==========
+function filterBooks() {
+  // Get the search input value
+  const searchTerm = document.getElementById("searchInput").value.toLowerCase().trim();
+  
+  // Get the selected genre
+  const selectedGenre = document.getElementById("genreFilter").value;
+  
+  // Get the selected sort option
+  const sortOption = document.getElementById("sortFilter").value;
+
+  // Step 1: Filter by search term
+  let filtered = books.filter(book => {
+    const matchesSearch = 
+      book.title.toLowerCase().includes(searchTerm) ||
+      book.author.toLowerCase().includes(searchTerm) ||
+      book.genre.toLowerCase().includes(searchTerm) ||
+      book.description.toLowerCase().includes(searchTerm);
+    
+    return matchesSearch;
+  });
+
+  // Step 2: Filter by genre
+  if (selectedGenre !== "all") {
+    filtered = filtered.filter(book => 
+      book.genre.toLowerCase() === selectedGenre.toLowerCase()
+    );
+  }
+
+  // Step 3: Sort the filtered books
+  switch(sortOption) {
+    case "price-low":
+      filtered.sort((a, b) => {
+        const priceA = parseFloat(a.price.replace('$', ''));
+        const priceB = parseFloat(b.price.replace('$', ''));
+        return priceA - priceB;
+      });
+      break;
+    case "price-high":
+      filtered.sort((a, b) => {
+        const priceA = parseFloat(a.price.replace('$', ''));
+        const priceB = parseFloat(b.price.replace('$', ''));
+        return priceB - priceA;
+      });
+      break;
+    case "title":
+      filtered.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+    case "title-desc":
+      filtered.sort((a, b) => b.title.localeCompare(a.title));
+      break;
+    default:
+      // Keep original order
+      break;
+  }
+
+  // Display the filtered and sorted books
+  displayBooks(filtered);
+
+  // Update the results count
+  updateResultsCount(filtered.length);
+}
+
+// ========== FUNCTION TO UPDATE RESULTS COUNT ==========
+function updateResultsCount(count) {
+  const countElement = document.getElementById("resultsCount");
+  if (countElement) {
+    countElement.innerHTML = `Showing <span>${count}</span> books`;
+  }
+}
+
+// ========== FUNCTION TO ADD TO CART ==========
+function addToCart(bookTitle) {
+  alert(`📚 Added "${bookTitle}" to cart!`);
+}
+
+// ========== SETUP EVENT LISTENERS ==========
+function setupEventListeners() {
+  // Get all the DOM elements
+  const searchInput = document.getElementById("searchInput");
+  const genreFilter = document.getElementById("genreFilter");
+  const sortFilter = document.getElementById("sortFilter");
+
+  // Add event listeners for filtering
+  if (searchInput) {
+    searchInput.addEventListener("input", filterBooks);
+  }
+
+  if (genreFilter) {
+    genreFilter.addEventListener("change", filterBooks);
+  }
+
+  if (sortFilter) {
+    sortFilter.addEventListener("change", filterBooks);
+  }
+}
+
+// ========== INITIALIZE PAGE ==========
+function init() {
+  // Display all books initially
+  displayBooks(books);
+  
+  // Update results count
+  updateResultsCount(books.length);
+  
+  // Set up event listeners
+  setupEventListeners();
+}
+
+// ========== RUN WHEN DOM IS READY ==========
+document.addEventListener("DOMContentLoaded", init);

@@ -39,21 +39,22 @@
                         <circle cx="11" cy="11" r="8"/>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                     </svg>
-                    <input type="text" placeholder="Search for books by title, author, or genre...">
+                    <input type="text" id="searchInput" placeholder="Search for books by title, author, or genre...">
                 </div>
                 <div class="filter-options">
-                    <select>
+                    <select id="genreFilter">
                         <option value="all">All Genres</option>
                         <option value="romance">Romance</option>
                         <option value="mystery">Mystery</option>
                         <option value="fantasy">Fantasy</option>
                         <option value="fiction">Fiction</option>
-                        <option value="self-development">Self-Development</option>
+                        <option value="self-dev">Self-Development</option>
                         <option value="thriller">Thriller</option>
                         <option value="historical">Historical Fiction</option>
+                        <option value="psychology">Psychology</option>
                         <option value="nonfiction">Nonfiction</option>
                     </select>
-                    <select>
+                    <select id="sortFilter">
                         <option value="default">Sort By</option>
                         <option value="price-low">Price: Low to High</option>
                         <option value="price-high">Price: High to Low</option>
@@ -63,12 +64,15 @@
                 </div>
             </div>
 
-            <!-- Books Grid - 4 columns x 3 rows -->
-           <div id="books-grid" class="books-grid">
-  <!-- JavaScript will insert the book cards here -->
-                </div>
+            <!-- Books Grid -->
+            <div id="books-grid" class="books-grid">
+                <!-- JavaScript will insert the book cards here -->
+            </div>
 
-    
+            <!-- Results Count -->
+            <div class="results-count" id="resultsCount">
+                Showing <span>12</span> books
+            </div>
         </div>
     </section>
 
@@ -141,6 +145,7 @@
             </div>
         </div>
     </footer>
+
     <script src="Book_Club_Books.js"></script>
 </body>
 </html>
