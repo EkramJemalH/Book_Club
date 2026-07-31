@@ -140,13 +140,16 @@ function displayBooks(booksToDisplay) {
 // ========== FUNCTION TO FILTER BOOKS ==========
 function filterBooks() {
   // Get the search input value
-  const searchTerm = document.getElementById("searchInput").value.toLowerCase().trim();
+  const searchInput = document.getElementById("searchInput");
+  const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
   
   // Get the selected genre
-  const selectedGenre = document.getElementById("genreFilter").value;
+  const genreFilter = document.getElementById("genreFilter");
+  const selectedGenre = genreFilter ? genreFilter.value : "all";
   
   // Get the selected sort option
-  const sortOption = document.getElementById("sortFilter").value;
+  const sortFilter = document.getElementById("sortFilter");
+  const sortOption = sortFilter ? sortFilter.value : "default";
 
   // Step 1: Filter by search term
   let filtered = books.filter(book => {
@@ -167,31 +170,24 @@ function filterBooks() {
   }
 
   // Step 3: Sort the filtered books
-  switch(sortOption) {
-    case "price-low":
-      filtered.sort((a, b) => {
-        const priceA = parseFloat(a.price.replace('$', ''));
-        const priceB = parseFloat(b.price.replace('$', ''));
-        return priceA - priceB;
-      });
-      break;
-    case "price-high":
-      filtered.sort((a, b) => {
-        const priceA = parseFloat(a.price.replace('$', ''));
-        const priceB = parseFloat(b.price.replace('$', ''));
-        return priceB - priceA;
-      });
-      break;
-    case "title":
-      filtered.sort((a, b) => a.title.localeCompare(b.title));
-      break;
-    case "title-desc":
-      filtered.sort((a, b) => b.title.localeCompare(a.title));
-      break;
-    default:
-      // Keep original order
-      break;
+  if (sortOption === "price-low") {
+    filtered.sort((a, b) => {
+      const priceA = parseFloat(a.price.replace('$', ''));
+      const priceB = parseFloat(b.price.replace('$', ''));
+      return priceA - priceB;
+    });
+  } else if (sortOption === "price-high") {
+    filtered.sort((a, b) => {
+      const priceA = parseFloat(a.price.replace('$', ''));
+      const priceB = parseFloat(b.price.replace('$', ''));
+      return priceB - priceA;
+    });
+  } else if (sortOption === "title") {
+    filtered.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (sortOption === "title-desc") {
+    filtered.sort((a, b) => b.title.localeCompare(a.title));
   }
+  // If "default", keep original order (no sorting)
 
   // Display the filtered and sorted books
   displayBooks(filtered);
