@@ -74,3 +74,4 @@ if (document.readyState === "loading") {
 } else {
   renderCards();
 }
+console.log("Book cards rendered successfully.");
