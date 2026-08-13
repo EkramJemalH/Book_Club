@@ -45,7 +45,7 @@ function renderCards() {
   if (!container) return;
 
   // Map over the array and generate HTML for each book object
-  container.innerHTML = books.map((book, idx) => `
+  container.innerHTML = FeatureBooks.map((book, idx) => `
     <div class="book-card">
       <div class="book-image">
         <img src="${book.image}" alt="${book.title}">
@@ -79,10 +79,10 @@ function setupCartDelegation() {
   container.addEventListener('click', (e) => {
   
     const addBtn = e.target.closest('.btn-add-to-cart');
-    if (addBtn) {
+      if (addBtn) {
       const idx = addBtn.dataset.index;
       if (typeof addToCart === 'function') {
-        addToCart(books[idx]);
+        addToCart(FeatureBooks[idx]);
       } else {
         console.error('addToCart is not available');
       }
@@ -94,7 +94,7 @@ function setupCartDelegation() {
     if (removeBtn) {
       const idx = removeBtn.dataset.index;
       if (typeof removeFromCart === 'function') {
-        removeFromCart(books[idx].title);
+        removeFromCart(FeatureBooks[idx].title);
       } else {
         console.error('removeFromCart is not available');
       }

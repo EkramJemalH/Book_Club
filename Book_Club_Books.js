@@ -98,7 +98,7 @@ const CatalogBooks = [
   }
 ];
 
-// alias for compatibility with existing code
+// alias for compatibility with existing code that expects `books`
 const books = CatalogBooks;
 
 // ========== FUNCTION TO RENDER BOOKS ==========
