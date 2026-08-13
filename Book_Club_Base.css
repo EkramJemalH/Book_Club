@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Griffy&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);  /* Nice shadow */
+    flex-wrap: wrap;  /* Allows wrapping on mobile */
+}
+
+/* Logo */
+.logo h1 {
+    font-family: "Griffy", system-ui;
+    font-weight: 400;
+    margin: 0;
+    color:white;
+}
+
+/* Navigation */
+.nav_container ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_container ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    display: inline-block;  /* ← IMPORTANT: Allows transform to work properly */
+    transition: all 0.3s ease;  /* ← Smooth transition for everything */
+}
+
+/* Underline animation */
+.nav_container ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #D3A376;
+    transition: width 0.3s ease;
+}
+
+/* Hover: Color change + Scale + Underline */
+.nav_container ul li a:hover {
+    color: #D3A376;
+    transform: scale(1.1);  /* ← Grows by 10% */
+}
+
+.nav_container ul li a:hover::after {
+    width: 100%;
+}

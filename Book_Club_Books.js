@@ -98,6 +98,9 @@ const CatalogBooks = [
   }
 ];
 
+// alias for compatibility with existing code
+const books = CatalogBooks;
+
 // ========== FUNCTION TO RENDER BOOKS ==========
 function displayBooks(booksToDisplay) {
   const container = document.getElementById("books-grid");
