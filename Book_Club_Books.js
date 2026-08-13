@@ -139,7 +139,6 @@ function displayBooks(booksToDisplay) {
 
 // ========== FUNCTION TO FILTER BOOKS ==========
 function filterBooks() {
-  // Get the search input value
   const searchInput = document.getElementById("searchInput");
   const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
   
@@ -202,13 +201,38 @@ function updateResultsCount(count) {
 }
 
 // ========== FUNCTION TO ADD TO CART ==========
-
 function handleAdd(bookTitle) {
   const book = books.find(b => b.title === bookTitle);
   if (book && typeof addToCart === 'function') {
-    addToCart(book); 
+    addToCart(book);
+  } else if (typeof addToCart !== 'function') {
+    console.error('addToCart is not available');
   }
 }
+
+// ========== EVENT DELEGATION FOR ADD/REMOVE actions ==========
+function setupCartDelegation() {
+  const container = document.getElementById("books-grid");
+  if (!container) return;
+ 
+  container.addEventListener('click', (e) => {
+    const addBtn = e.target.closest('.btn-add-to-cart');
+    if (addBtn) {
+      handleAdd(addBtn.dataset.title);
+      return;
+    }
+ 
+    const removeBtn = e.target.closest('.btn-remove-from-cart');
+    if (removeBtn) {
+      if (typeof removeFromCart === 'function') {
+        removeFromCart(removeBtn.dataset.title);
+      } else {
+        console.error('removeFromCart is not available');
+      }
+    }
+  });
+}
+
 // ========== SETUP EVENT LISTENERS ==========
 function setupEventListeners() {
 
@@ -237,5 +261,10 @@ function init() {
   updateResultsCount(books.length);
   
   setupEventListeners();
+  setupCartDelegation();
 }
-document.addEventListener("DOMContentLoaded", init);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
