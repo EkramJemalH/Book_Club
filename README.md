@@ -3,6 +3,10 @@
 ## Overview 
         online bookstore that modernizes the book shopping experience by providing a carefully curated selection of both physical and digital books.Making it easier for readers to discover, browse, and purchase books that inspire and entertain them .Enabling users to explore a diverse collection across multiple genres, with a focus on connecting readers with stories that matter.
 
+#####
+
+![Home page](image.png)
+
 ## Features
     --Provide a digital platform to discover, browse, and purchase books.
     --Static landing page: Welcoming hero section with search button
@@ -86,7 +90,7 @@ BOOK_CLUB/
 
 ## License
     This project is open source and available under the MIT License.
-    
+
 ## Connect with me 
     feel free to reach out 
     https://www.linkedin.com/in/ekram-jemalh-446978317/
