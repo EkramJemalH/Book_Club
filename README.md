@@ -4,7 +4,7 @@
         online bookstore that modernizes the book shopping experience by providing a carefully curated selection of both physical and digital books.Making it easier for readers to discover, browse, and purchase books that inspire and entertain them .Enabling users to explore a diverse collection across multiple genres, with a focus on connecting readers with stories that matter.
 
 #####
-
+ScreenShot of the landing page
 ![Home page](image.png)
 
 ## Features
@@ -84,6 +84,8 @@ BOOK_CLUB/
     --Add/remove books from your cart
     --View and manage your cart
     --Learn more about the store on the About page
+## What is not done yet
+    --The cart page
 
 ## Contributing
     Feel free to submit issues or pull requests if you want to contribute

@@ -1,12 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
+:root {
+    /* Colors */
+    --color-accent: #D3A376;
+    --color-accent-hover: #b8895e;
+    --color-dark: #2d2a24;
+    --color-darker: #1a1814;
+    --color-bg-cream: #f8f5f0;
+    --color-bg-beige: #f0ece6;
+    --color-text-muted: #666;
+    --color-text-light: #888;
+    --color-white: #ffffff;
+
+    /* Fonts */
+    --font-serif: "Libertinus Serif", serif;
+    --font-display: "Griffy", system-ui;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* ========== TOP BAR ========== */
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -17,7 +31,7 @@
 }
 
 .logo h1 {
-    font-family: "Griffy", system-ui;
+    font-family: var(--font-display) system-ui;
     font-weight: 400;
     margin: 0;
     color: white;
@@ -43,7 +57,7 @@
 }
 
 .nav_container ul li a.active {
-    color: #D3A376;
+    color: var(--color-accent);
 }
 
 .nav_container ul li a::after {
@@ -53,7 +67,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #D3A376;
+    background: var(--color-accent);
     transition: width 0.3s ease;
 }
 
@@ -62,7 +76,7 @@
 }
 
 .nav_container ul li a:hover {
-    color: #D3A376;
+    color: var(--color-accent);
     transform: scale(1.1);
 }
 
@@ -70,7 +84,6 @@
     width: 100%;
 }
 
-/* ========== HERO ========== */
 .hero_wrapper {
     min-height: 400px;
     max-height: 400px;
@@ -146,7 +159,6 @@
     margin: 0 auto;
 }
 
-/* ========== BOOKS SECTION ========== */
 .books-section {
     padding: 3rem 2rem;
     background: #f8f5f0;
@@ -157,8 +169,6 @@
     margin: 0 auto;
     padding: 0 1rem;
 }
-
-/* ========== SEARCH & FILTER ========== */
 .search-filter {
     display: flex;
     flex-wrap: wrap;
@@ -227,12 +237,11 @@
 
 .filter-options select:focus {
     outline: none;
-    border-color: #D3A376;
+    border-color: var(--color-accent);
     background: white;
     box-shadow: 0 0 0 4px rgba(211, 163, 118, 0.1);
 }
 
-/* ========== BOOKS GRID - 4 COLUMNS × 3 ROWS ========== */
 .books-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);  /* ← 4 EQUAL COLUMNS */
@@ -240,7 +249,6 @@
     margin-bottom: 2rem;
 }
 
-/* ========== BOOK CARD - FIXED! ========== */
 .book-card {
     background: white;
     border-radius: 12px;
@@ -249,15 +257,13 @@
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    height: 100%;  /* ← Makes all cards same height within their row */
+    height: 100%; 
 }
 
 .book-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
-
-/* ========== BOOK IMAGE ========== */
 .book-image {
     position: relative;
     height: 200px;
@@ -293,12 +299,11 @@
     transform: scale(1.05);
 }
 
-/* Book Badge */
 .book-badge {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #D3A376;
+    background: var(--color-accent);
     color: white;
     padding: 4px 12px;
     border-radius: 20px;
@@ -308,8 +313,6 @@
     letter-spacing: 0.5px;
     z-index: 2;
 }
-
-/* ========== BOOK INFO ========== */
 .book-info {
     padding: 1rem 1.2rem 1.2rem;
     flex: 1;
@@ -345,7 +348,6 @@
     margin-bottom: 0.5rem;
 }
 
-/* ========== BOOK FOOTER ========== */
 .book-footer {
     display: flex;
     justify-content: space-between;
@@ -360,11 +362,11 @@
     font-family: "Libertinus Serif", serif;
     font-size: 1.1rem;
     font-weight: 700;
-    color: #D3A376;
+    color: var(--color-accent);
 }
 
 .btn-add-to-cart {
-    background: #2d2a24;
+    background: var(--color-dark);
     color: white;
     border: none;
     padding: 5px 14px;
@@ -379,11 +381,11 @@
 }
 
 .btn-add-to-cart:hover {
-    background: #D3A376;
+    background: var(--color-accent);
     transform: scale(1.05);
 }
 .btn-remove-from-cart {
-    background: #D3A376;
+    background: var(--color-accent);
     color: white;
     border: none;
     padding: 5px 14px;
@@ -400,8 +402,6 @@
     background: var(--color-dark);
     transform: scale(1.05);
 }
-
-/* ========== RESULTS COUNT ========== */
 .results-count {
     text-align: center;
     font-size: 0.95rem;

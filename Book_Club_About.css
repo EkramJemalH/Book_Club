@@ -15,13 +15,13 @@
     --font-serif: "Libertinus Serif", serif;
     --font-display: "Griffy", system-ui;
 }
-/* ========== HERO WRAPPER ========== */
+
 .hero_wrapper {
     background: 
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url('images/about_us_background.jpg') center/cover no-repeat;
-    min-height: 400px;  /* ← 400px HEIGHT! */
-    max-height: 400px;  /* ← FIXED 400px HEIGHT */
+    min-height: 400px;  
+    max-height: 400px;  
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -49,24 +49,23 @@
     z-index: 1;
 }
 
-/* ========== HERO - LEFT ALIGNED ========== */
 .hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;  /* ← LEFT ALIGNED! */
-    text-align: left;        /* ← Text aligned to the left */
-    padding: 1.5rem 4rem;    /* ← Reduced padding for smaller height */
+    align-items: flex-start; 
+    text-align: left;     
+    padding: 1.5rem 4rem;    
     flex: 1;
-    max-width: 60%;          /* Limits width to 60% of container */
+    max-width: 60%;         
 }
 
-/* Hero Text Styles - Smaller for 400px height */
+
 .hero h1 {
     font-family: var(--font-serif);
     font-weight: 900;
     font-style: normal;
-    font-size: 3.5rem;       /* ← Reduced from 4.5rem */
+    font-size: 3.5rem;      
     text-align: left;
     color: white;
     margin-bottom: 0.3rem;
@@ -77,7 +76,7 @@
     font-family: var(--font-serif);
     font-weight: 400;
     font-style: normal;
-    font-size: 1.5rem;       /* ← Reduced from 1.8rem */
+    font-size: 1.5rem;     
     text-align: left;
     color: white;
     margin-bottom: 0.3rem;
@@ -87,16 +86,14 @@
     font-family: var(--font-serif);
     font-weight: 400;
     font-style: normal;
-    font-size: 1rem;         /* ← Reduced from 1.1rem */
+    font-size: 1rem;        
     text-align: left;
     color: rgba(255, 255, 255, 0.9);
     max-width: 550px;
     line-height: 1.5;
     margin-right: auto;
 }
-/* ============================================================
-   OUR STORY SECTION
-   ============================================================ */
+
 .our-story {
     padding: 5rem 2rem;
     background: var(--color-bg-cream);
@@ -113,8 +110,6 @@
     gap: 4rem;
     align-items: center;
 }
-
-/* Story Image */
 .story-image {
     position: relative;
     border-radius: 16px;
@@ -151,7 +146,6 @@
     opacity: 0.8;
 }
 
-/* Story Content */
 .story-content h2 {
     font-family: "Libertinus Serif", serif;
     font-weight: 900;
@@ -185,9 +179,7 @@
     box-shadow: 0 4px 15px rgba(211, 163, 118, 0.3);
 }
 
-/* ============================================================
-   WHY SHOP WITH US
-   ============================================================ */
+
 .why-shop {
     padding: 5rem 2rem;
     background: white;
@@ -197,8 +189,6 @@
     max-width: 1200px;
     margin: 0 auto;
 }
-
-/* Section Header */
 .section-header {
     text-align: center;
     margin-bottom: 3.5rem;
@@ -216,8 +206,6 @@
     font-size: 1.1rem;
     color: #888;
 }
-
-/* Features Grid */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -271,10 +259,6 @@
     color: var(--color-text-muted);
     line-height: 1.6;
 }
-
-/* ============================================================
-   CALL TO ACTION
-   ============================================================ */
 .cta-section {
     padding: 4rem 2rem;
     background: var(--color-darker);
