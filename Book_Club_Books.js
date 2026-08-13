@@ -1,5 +1,5 @@
 // ========== BOOK DATA ==========
-const books = [
+const CatalogBooks = [
   {
     title: "It Ends with Us",
     author: "Colleen Hoover",

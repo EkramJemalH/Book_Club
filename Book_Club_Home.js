@@ -1,5 +1,5 @@
 // Data array storing information for each card
-const books = [
+const FeatureBooks = [
   {
     title: "Atomic Habits",
     author: "James Clear",
