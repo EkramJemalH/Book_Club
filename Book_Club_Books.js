@@ -130,8 +130,9 @@ function displayBooks(booksToDisplay) {
         <p class="book-description">${book.description}</p>
         <div class="book-footer">
           <span class="book-price">${book.price}</span>
-          <button class="btn-add-to-cart" onclick="handleAdd('${book.title}')">Add to Cart</button>
-<button class="btn-remove-from-cart" onclick="removeFromCart('${book.title}')">Remove from Cart</button>
+          <button class="btn-add-to-cart" data-title="${book.title}">Add to Cart</button>
+          <button class="btn-remove-from-cart" data-title="${book.title}">Remove from Cart</button>
+        </div>
       </div>
     </div>
   `).join("");
