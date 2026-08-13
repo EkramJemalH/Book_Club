@@ -68,42 +68,49 @@ function renderCards() {
     </div>
   `).join("");
 
-  // Attach click handlers to newly created buttons
-  setupCartButtons();
+  
   if (typeof updateCartBadge === 'function') updateCartBadge();
 }
 
-// Attach handlers for add/remove buttons created by renderCards
-function setupCartButtons() {
-  // Add to cart
-  document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const idx = e.currentTarget.dataset.index;
+function setupCartDelegation() {
+  const container = document.getElementById("cards-container");
+  if (!container) return;
+ 
+  container.addEventListener('click', (e) => {
+  
+    const addBtn = e.target.closest('.btn-add-to-cart');
+    if (addBtn) {
+      const idx = addBtn.dataset.index;
       if (typeof addToCart === 'function') {
         addToCart(books[idx]);
       } else {
         console.error('addToCart is not available');
       }
-    });
-  });
-
-  // Remove from cart
-  document.querySelectorAll('.btn-remove-from-cart').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const idx = e.currentTarget.dataset.index;
+      return;
+    }
+ 
+  
+    const removeBtn = e.target.closest('.btn-remove-from-cart');
+    if (removeBtn) {
+      const idx = removeBtn.dataset.index;
       if (typeof removeFromCart === 'function') {
         removeFromCart(books[idx].title);
       } else {
         console.error('removeFromCart is not available');
       }
-    });
+    }
   });
+}
+ 
+function init() {
+  renderCards();
+  setupCartDelegation(); 
 }
 
 // Execute rendering when the DOM content is fully loaded
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", renderCards);
+  document.addEventListener("DOMContentLoaded", init);
 } else {
-  renderCards();
+  init();
 }
 console.log("Book cards rendered successfully.");
