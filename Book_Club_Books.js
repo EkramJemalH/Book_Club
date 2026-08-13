@@ -104,7 +104,7 @@ function displayBooks(booksToDisplay) {
 
   if (!container) return;
 
-  // If no books to display, show a message
+
   if (!booksToDisplay || booksToDisplay.length === 0) {
     container.innerHTML = `
       <div class="no-results">
@@ -130,8 +130,8 @@ function displayBooks(booksToDisplay) {
         <p class="book-description">${book.description}</p>
         <div class="book-footer">
           <span class="book-price">${book.price}</span>
-          <button class="btn-add-to-cart" onclick="addToCart('${book.title}')">Add to Cart</button>
-        </div>
+          <button class="btn-add-to-cart" onclick="handleAdd('${book.title}')">Add to Cart</button>
+<button class="btn-remove-from-cart" onclick="removeFromCart('${book.title}')">Remove from Cart</button>
       </div>
     </div>
   `).join("");
@@ -143,15 +143,15 @@ function filterBooks() {
   const searchInput = document.getElementById("searchInput");
   const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
   
-  // Get the selected genre
+  
   const genreFilter = document.getElementById("genreFilter");
   const selectedGenre = genreFilter ? genreFilter.value : "all";
   
-  // Get the selected sort option
+
   const sortFilter = document.getElementById("sortFilter");
   const sortOption = sortFilter ? sortFilter.value : "default";
 
-  // Step 1: Filter by search term
+  
   let filtered = books.filter(book => {
     const matchesSearch = 
       book.title.toLowerCase().includes(searchTerm) ||
@@ -162,14 +162,14 @@ function filterBooks() {
     return matchesSearch;
   });
 
-  // Step 2: Filter by genre
+  
   if (selectedGenre !== "all") {
     filtered = filtered.filter(book => 
       book.genre.toLowerCase() === selectedGenre.toLowerCase()
     );
   }
 
-  // Step 3: Sort the filtered books
+  
   if (sortOption === "price-low") {
     filtered.sort((a, b) => {
       const priceA = parseFloat(a.price.replace('$', ''));
@@ -187,12 +187,9 @@ function filterBooks() {
   } else if (sortOption === "title-desc") {
     filtered.sort((a, b) => b.title.localeCompare(a.title));
   }
-  // If "default", keep original order (no sorting)
 
-  // Display the filtered and sorted books
   displayBooks(filtered);
 
-  // Update the results count
   updateResultsCount(filtered.length);
 }
 
@@ -205,18 +202,21 @@ function updateResultsCount(count) {
 }
 
 // ========== FUNCTION TO ADD TO CART ==========
-function addToCart(bookTitle) {
-  alert(`📚 Added "${bookTitle}" to cart!`);
-}
 
+function handleAdd(bookTitle) {
+  const book = books.find(b => b.title === bookTitle);
+  if (book && typeof addToCart === 'function') {
+    addToCart(book); 
+  }
+}
 // ========== SETUP EVENT LISTENERS ==========
 function setupEventListeners() {
-  // Get all the DOM elements
+
   const searchInput = document.getElementById("searchInput");
   const genreFilter = document.getElementById("genreFilter");
   const sortFilter = document.getElementById("sortFilter");
 
-  // Add event listeners for filtering
+
   if (searchInput) {
     searchInput.addEventListener("input", filterBooks);
   }
@@ -232,15 +232,10 @@ function setupEventListeners() {
 
 // ========== INITIALIZE PAGE ==========
 function init() {
-  // Display all books initially
   displayBooks(books);
-  
-  // Update results count
+
   updateResultsCount(books.length);
   
-  // Set up event listeners
   setupEventListeners();
 }
-
-// ========== RUN WHEN DOM IS READY ==========
 document.addEventListener("DOMContentLoaded", init);
