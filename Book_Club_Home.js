@@ -45,7 +45,7 @@ function renderCards() {
   if (!container) return;
 
   // Map over the array and generate HTML for each book object
-  container.innerHTML = books.map(book => `
+  container.innerHTML = books.map((book, idx) => `
     <div class="book-card">
       <div class="book-image">
         <img src="${book.image}" alt="${book.title}">
@@ -61,11 +61,43 @@ function renderCards() {
         <span class="book-genre">${book.category}</span>
         <div class="book-footer">
           <span class="book-price">${book.price}</span>
-          <button class="btn-add-to-cart">Add to Cart</button>
+          <button class="btn-add-to-cart" data-index="${idx}">Add to Cart</button>
+          <button class="btn-remove-from-cart" data-index="${idx}">Remove from Cart</button>
         </div>
       </div>
     </div>
   `).join("");
+
+  // Attach click handlers to newly created buttons
+  setupCartButtons();
+  if (typeof updateCartBadge === 'function') updateCartBadge();
+}
+
+// Attach handlers for add/remove buttons created by renderCards
+function setupCartButtons() {
+  // Add to cart
+  document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = e.currentTarget.dataset.index;
+      if (typeof addToCart === 'function') {
+        addToCart(books[idx]);
+      } else {
+        console.error('addToCart is not available');
+      }
+    });
+  });
+
+  // Remove from cart
+  document.querySelectorAll('.btn-remove-from-cart').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = e.currentTarget.dataset.index;
+      if (typeof removeFromCart === 'function') {
+        removeFromCart(books[idx].title);
+      } else {
+        console.error('removeFromCart is not available');
+      }
+    });
+  });
 }
 
 // Execute rendering when the DOM content is fully loaded

@@ -321,6 +321,21 @@
     background: #D3A376;
     transform: scale(1.05);
 }
+.btn-remove-from-cart {
+    background: #D3A376;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-remove-from-cart:hover {
+    background: #2d2a24;
+    transform: scale(1.05);
+}
 /* ========== BROWSE CATEGORIES SECTION ========== */
 .browse-categories {
     padding: 4rem 2rem;
