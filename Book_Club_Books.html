@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookClub - Books</title>
+    <link rel="stylesheet" href="Book_Club_Base.css">
     <link rel="stylesheet" href="Book_Club_Books.css">
+    
 </head>
 <body>
     <!-- ========== HERO SECTION ========== -->
@@ -13,6 +15,7 @@
             <div class="logo">
                 <h1>BooK CluB</h1>
             </div>
+           
             <nav class="nav_container">
                 <ul>
                     <li><a href="Book_Club_Home.html">Home</a></li>
@@ -21,6 +24,13 @@
                     <li><a href="Book_Club_Contact.html">Contact Us</a></li>
                 </ul>
             </nav>
+            <nav>
+            <div class="ham-menu" aria-expanded="false" aria-controls="main-nav" role="button" tabindex="0">
+                <span></span>
+                <span> </span>
+                <span> </span>
+            </div>
+        </nav>
         </header>
         <div class="hero">
             <h1>OUR BOOKS</h1>
@@ -145,7 +155,9 @@
             </div>
         </div>
     </footer>
-
+    <script src="Book_Club_Cart.js"></script>
     <script src="Book_Club_Books.js"></script>
+    <script src="Book_Club_UI.js"></script>
+    
 </body>
 </html>

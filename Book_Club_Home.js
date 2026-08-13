@@ -1,5 +1,5 @@
 // Data array storing information for each card
-const books = [
+const FeatureBooks = [
   {
     title: "Atomic Habits",
     author: "James Clear",
@@ -45,7 +45,7 @@ function renderCards() {
   if (!container) return;
 
   // Map over the array and generate HTML for each book object
-  container.innerHTML = books.map(book => `
+  container.innerHTML = FeatureBooks.map((book, idx) => `
     <div class="book-card">
       <div class="book-image">
         <img src="${book.image}" alt="${book.title}">
@@ -61,17 +61,56 @@ function renderCards() {
         <span class="book-genre">${book.category}</span>
         <div class="book-footer">
           <span class="book-price">${book.price}</span>
-          <button class="btn-add-to-cart">Add to Cart</button>
+          <button class="btn-add-to-cart" data-index="${idx}">Add to Cart</button>
+          <button class="btn-remove-from-cart" data-index="${idx}">Remove from Cart</button>
         </div>
       </div>
     </div>
   `).join("");
+
+  
+  if (typeof updateCartBadge === 'function') updateCartBadge();
+}
+
+function setupCartDelegation() {
+  const container = document.getElementById("cards-container");
+  if (!container) return;
+ 
+  container.addEventListener('click', (e) => {
+  
+    const addBtn = e.target.closest('.btn-add-to-cart');
+      if (addBtn) {
+      const idx = addBtn.dataset.index;
+      if (typeof addToCart === 'function') {
+        addToCart(FeatureBooks[idx]);
+      } else {
+        console.error('addToCart is not available');
+      }
+      return;
+    }
+ 
+  
+    const removeBtn = e.target.closest('.btn-remove-from-cart');
+    if (removeBtn) {
+      const idx = removeBtn.dataset.index;
+      if (typeof removeFromCart === 'function') {
+        removeFromCart(FeatureBooks[idx].title);
+      } else {
+        console.error('removeFromCart is not available');
+      }
+    }
+  });
+}
+ 
+function init() {
+  renderCards();
+  setupCartDelegation(); 
 }
 
 // Execute rendering when the DOM content is fully loaded
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", renderCards);
+  document.addEventListener("DOMContentLoaded", init);
 } else {
-  renderCards();
+  init();
 }
 console.log("Book cards rendered successfully.");
