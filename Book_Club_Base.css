@@ -6,26 +6,155 @@
     padding: 0;
     box-sizing: border-box;
 }
+.hamburger,
+.ham-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 34px;
+    height: 24px;
+    margin-left: auto;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
 
-/* Top Bar */
+.hamburger-line,
+.ham-menu span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 999px;
+    transform-origin: center;
+    transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+    top: 2px;
+}
+
+.ham-menu span:nth-child(2) {
+    top: 10.5px;
+}
+
+.ham-menu span:nth-child(3) {
+    top: 19px;
+}
+
+.ham-menu.active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-45deg);
+}
+
+.nav_container {
+    margin-left: auto;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .logo {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .logo h1 {
+        white-space: nowrap;
+        font-size: 1.5rem;
+    }
+
+    .top-bar nav:last-of-type {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav_container {
+        display: none;
+        width: 100%;
+        order: 3;
+    }
+
+    .nav_container.open {
+        display: block;
+    }
+
+    .nav_container ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .hamburger,
+    .ham-menu {
+        display: flex;
+        margin-left: auto;
+        flex-shrink: 0;
+        width: 32px;
+        height: 22px;
+    }
+
+    .hamburger-line,
+    .ham-menu span {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger,
+    .ham-menu {
+        display: none;
+    }
+}
 .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);  /* Nice shadow */
-    flex-wrap: wrap;  /* Allows wrapping on mobile */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-/* Logo */
+.logo {
+    flex: 1;
+    min-width: 0;
+}
+
 .logo h1 {
     font-family: "Griffy", system-ui;
     font-weight: 400;
     margin: 0;
-    color:white;
+    color: white;
+    white-space: nowrap;
 }
 
-/* Navigation */
 .nav_container ul {
     display: flex;
     list-style: none;
@@ -41,11 +170,10 @@
     font-size: 1rem;
     padding: 0.5rem 0;
     position: relative;
-    display: inline-block;  /* ← IMPORTANT: Allows transform to work properly */
-    transition: all 0.3s ease;  /* ← Smooth transition for everything */
+    display: inline-block;  
+    transition: all 0.3s ease;  
 }
 
-/* Underline animation */
 .nav_container ul li a::after {
     content: '';
     position: absolute;
@@ -57,7 +185,7 @@
     transition: width 0.3s ease;
 }
 
-/* Hover: Color change + Scale + Underline */
+
 .nav_container ul li a:hover {
     color: #D3A376;
     transform: scale(1.1);  /* ← Grows by 10% */
@@ -66,9 +194,6 @@
 .nav_container ul li a:hover::after {
     width: 100%;
 }
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .footer {
     background: #1a1814;
     color: rgba(255, 255, 255, 0.8);
